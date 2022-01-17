@@ -154,9 +154,15 @@ void draw() {
             health -= field[i].attack;
           } else {
             field[i + 12].health -= field[i].attack;
+            if (field[i + 12].health <= 0) {
+              field[i + 12].state = 5;
+            }
           }
         } else {
           field[i + 8].health -= field[i].attack;
+          if (field[i + 8].health <= 0) {
+              field[i + 8].state = 5;
+          }
         }
       }
       for (int i = 4; i < 8; i++) {
@@ -168,9 +174,15 @@ void draw() {
             health -= field[i].attack;
           } else {
             field[i + 8].health -= field[i].attack;
+            if (field[i + 8].health <= 0) {
+              field[i + 8].state = 5;
+            }
           }
         } else {
           field[i + 4].health -= field[i].attack;
+          if (field[i + 4].health <= 0) {
+              field[i + 4].state = 5;
+            }
         }
       }
       for (int i = 8; i < 12; i++) {
@@ -182,9 +194,15 @@ void draw() {
             ai.health -= field[i].attack;
           } else {
             field[i - 8].health -= field[i].attack;
+            if (field[i - 8].health <= 0) {
+              field[i - 8].state = 5;
+            }
           }
         } else {
           field[i - 4].health -= field[i].attack;
+          if (field[i - 4].health <= 0) {
+              field[i - 4].state = 5;
+            }
         }
       }
       for (int i = 12; i < 16; i++) {
@@ -252,5 +270,3 @@ void mouseClicked() {
     }
   }
 }
-
-// new Card(playerHand.inHand[playerHand.selected].cardImage, playerHand.inHand[playerHand.selected].manaCost, playerHand.inHand[playerHand.selected].attack, playerHand.inHand[playerHand.selected].health, playerHand.inHand[playerHand.selected].ability);
