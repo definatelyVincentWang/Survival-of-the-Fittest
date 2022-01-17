@@ -8,7 +8,7 @@ class AI {
     int handLen;
     
     AI() {
-        int handLen = 4;
+        handLen = 4;
         health = 20;
         mana = 2;
         hand = new Hand();
@@ -20,11 +20,11 @@ class AI {
     }
     
     void placeCardToField(Card[] field) {
-        for (int i = 0; i < handLen; i++) { //<>//
+        for (int i = 0; i < handLen; i++) {
           if (hand.inHand[i].manaCost <= mana) {
             int runs = 0;
-            int fieldSpots = (int)random(8);
-            field[fieldSpots] = new Card(playerHand.inHand[playerHand.selected].cardImage, playerHand.inHand[playerHand.selected].manaCost, playerHand.inHand[playerHand.selected].attack, playerHand.inHand[playerHand.selected].health, playerHand.inHand[playerHand.selected].ability);
+            int fieldSpots = (int)random(0,8);
+            field[fieldSpots] = hand.inHand[i];
             field[fieldSpots].state = 1;
             hand.remove(i);
             handLen--;
